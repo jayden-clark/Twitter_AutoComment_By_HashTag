@@ -29,7 +29,7 @@ class bot():
 
         auth = tweepy.OAuthHandler(self.consumer_key, self.consumer_secret)
         auth.set_access_token(self.access_token, self.access_secret)
-        self.api = tweepy.API(auth)
+        self.api = tweepy.API(auth, wait_on_rate_limit=True)
 
     def retrieve_last_seen_id(self, file_name):
         f_read = open(file_name, 'r')
